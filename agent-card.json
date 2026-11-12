@@ -17,7 +17,7 @@
                                                                "identity":  {
                                                                                 "username":  "kleishamzai123",
                                                                                 "provider":  "github",
-                                                                                "packageName":  "github.kleishamzai123.agent-zero-policy-aware-kyc"
+                                                                                "packageName": "github.kleishamzai123.agent_zero_policy_aware_kyc"
                                                                             }
                                                            },
                                                 "description":  "A2A Global Registry verification and metadata extension",
