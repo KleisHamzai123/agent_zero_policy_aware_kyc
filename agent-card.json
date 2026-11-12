@@ -1,5 +1,5 @@
 {
-    "name":  "Agent Zero â Policy-Aware KYC",
+    "name":  "Agent Zero -Policy-Aware KYC",
     "description":  "Consent-based identity verification in Germany through Didit. Persistent tasks, explicit policies, human review and minimized Gemini summaries. Customers must complete the hosted identity flow.",
     "supportedInterfaces":  [
                                 {
