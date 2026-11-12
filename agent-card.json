@@ -1,0 +1,128 @@
+{
+    "name":  "Agent Zero â Policy-Aware KYC",
+    "description":  "Consent-based identity verification in Germany through Didit. Persistent tasks, explicit policies, human review and minimized Gemini summaries. Customers must complete the hosted identity flow.",
+    "supportedInterfaces":  [
+                                {
+                                    "url":  "https://devoted-appreciation-production-dc5a.up.railway.app/a2a/jsonrpc",
+                                    "protocolBinding":  "JSONRPC",
+                                    "protocolVersion":  "1.0"
+                                }
+                            ],
+    "version":  "1.0.0",
+    "capabilities":  {
+                         "streaming":  false,
+                         "extensions":  [
+                                            {
+                                                "params":  {
+                                                               "identity":  {
+                                                                                "username":  "kleishamzai123",
+                                                                                "provider":  "github",
+                                                                                "packageName":  "github.kleishamzai123.agent-zero-policy-aware-kyc"
+                                                                            }
+                                                           },
+                                                "description":  "A2A Global Registry verification and metadata extension",
+                                                "uri":  "https://a2a-registry.org/extensions/registry/v1",
+                                                "required":  false
+                                            }
+                                        ]
+                     },
+    "securitySchemes":  {
+                            "bearerAuth":  {
+                                               "httpAuthSecurityScheme":  {
+                                                                              "description":  "Tenant/customer-scoped OAuth/OIDC token",
+                                                                              "scheme":  "bearer",
+                                                                              "bearerFormat":  "JWT"
+                                                                          }
+                                           }
+                        },
+    "securityRequirements":  [
+                                 {
+                                     "schemes":  {
+                                                     "bearerAuth":  {
+
+                                                                    }
+                                                 }
+                                 }
+                             ],
+    "defaultInputModes":  [
+                              "text/plain"
+                          ],
+    "defaultOutputModes":  [
+                               "text/plain"
+                           ],
+    "skills":  [
+                   {
+                       "id":  "start_kyc",
+                       "name":  "Start identity verification",
+                       "description":  "Create a unique Didit KYC session and hosted verification URL.",
+                       "tags":  [
+                                    "kyc",
+                                    "identity",
+                                    "onboarding"
+                                ],
+                       "examples":  [
+                                        "{\"action\":\"start\",\"request_id\":\"request-001\",\"customer_id\":\"customer_001\"}"
+                                    ],
+                       "inputModes":  [
+                                          "text/plain"
+                                      ],
+                       "outputModes":  [
+                                           "text/plain"
+                                       ]
+                   },
+                   {
+                       "id":  "get_kyc_task",
+                       "name":  "Read verification status",
+                       "description":  "Read the caller-authorized task.",
+                       "tags":  [
+                                    "kyc",
+                                    "status"
+                                ],
+                       "examples":  [
+                                        "{\"action\":\"get\", \"task_id\":\"...\"}"
+                                    ],
+                       "inputModes":  [
+                                          "text/plain"
+                                      ],
+                       "outputModes":  [
+                                           "text/plain"
+                                       ]
+                   },
+                   {
+                       "id":  "refresh_kyc",
+                       "name":  "Refresh KYC status",
+                       "description":  "Fetch Didit results and apply policy without creating a session.",
+                       "tags":  [
+                                    "kyc",
+                                    "verification"
+                                ],
+                       "examples":  [
+                                        "{\"action\":\"refresh\", \"task_id\":\"...\"}"
+                                    ],
+                       "inputModes":  [
+                                          "text/plain"
+                                      ],
+                       "outputModes":  [
+                                           "text/plain"
+                                       ]
+                   },
+                   {
+                       "id":  "report_kyc",
+                       "name":  "Generate or retrieve KYC report",
+                       "description":  "Generate authorized Gemini summary after workflow gates.",
+                       "tags":  [
+                                    "kyc",
+                                    "report"
+                                ],
+                       "examples":  [
+                                        "{\"action\":\"report\", \"task_id\":\"...\"}"
+                                    ],
+                       "inputModes":  [
+                                          "text/plain"
+                                      ],
+                       "outputModes":  [
+                                           "text/plain"
+                                       ]
+                   }
+               ]
+}
